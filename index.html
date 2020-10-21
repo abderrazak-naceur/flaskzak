@@ -1,0 +1,22 @@
+<!-- home.html -->
+{% extends "base.html" %}
+  
+{% block content %}
+  <h1>{{page["title"]}}</h1>
+  <div class="body">
+    Benvenuto! <br> <br>
+	Cliccando sul pulsante <b>Avvia Ricerca</b> in basso, il programma cercherà se ci sono partite Live che rispettano i tuoi filtri. <br> <br>
+	I filtri attuali sono: <br> <br>
+	1) minuto della partita compreso tra <b>30</b> e <b>60</b> <br>
+	2) quota 1 compresa tra <b>1.25</b> e <b>2.00</b> <br>
+	3) quota X maggiore di <b>2.40</b> <br>
+	4) quota 2 maggiore o uguale a <b>6.00</b> <br> <br>
+	E' probabile che la ricerca abbia bisogno di alcuni secondi. Attendi per favore! <br> <br>
+	
+	<form action="/results">
+		<input type="submit" value="Avvia Ricerca">
+	</form>
+	
+  </div>
+  
+{% endblock %}

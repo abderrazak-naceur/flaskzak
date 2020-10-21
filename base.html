@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{title}}</title>
+  <!-- link rel="stylesheet" href="/css/style.css"-->
+  <style>li.selected a { font-weight: bold; }</style>
+</head>
+<body>
+	<!-- immagine come risorsa statica -->
+	<header>
+		<img src="/static/logo_sisal.jpg">
+	</header>
+  <nav>
+    <ul>
+      <!-- genero il menu usando un ciclo for -->
+      {% for item in menu %}
+        <!-- determino se il menu corrisponde alla pagina corrente, se si lo evidenzio-->
+        <li class="{{ 'selected' if item['id'] == page['id'] else '' }}">
+          {% if item["id"] == 0 %}
+            <!-- se è la home page, semplifico il link -->
+            <a href="/">{{item['title']}}</a></li>
+          {% else %}
+            <a href="/pagina/{{item['id']}}">{{item['title']}}</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+  <div class="content">
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>
